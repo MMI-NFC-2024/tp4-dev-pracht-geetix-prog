@@ -1,0 +1,59 @@
+<!doctype html>
+<div id="penguins"></div>
+<a href="/">Aller à la page d'accueil</a>
+<a href="/simple">Aller à la page simple</a>
+
+<select name="species" id="species">
+    <option value="">All species</option>
+    <option value="Adelie">Adelie</option>
+    <option value="Chinstrap">Chinstrap</option>
+    <option value="Gentoo">Gentoo</option>
+</select>
+
+<script>
+    // Importe la librairie Plot d'ObservableHQ
+    import * as Plot from "@observablehq/plot";
+    // Importe les données des manchots depuis un fichier JSON
+    import penguins from "../assets/penguins.json";
+
+    // Récupère l'élément select pour choisir l'espèce
+    const selectSpecies = document.querySelector("#species");
+
+    // Fonction pour afficher le graphique
+    function renderPlot() {
+        // Récupère l'espèce sélectionnée
+        const species = selectSpecies!.value;
+
+        // Sélectionne la div où le graphique sera affiché
+        const div = document.querySelector("#penguins");
+
+        // Vide le contenu précédent de la div
+        div!.innerHTML = "";
+
+        // Filtrage des données selon l'espèce (ou toutes si vide)
+        const data = species
+            ? penguins.filter((d) => d.species === species)
+            : penguins;
+
+        // Crée le graphique avec Plot
+        const plot = Plot.plot({
+            marks: [
+                // Ajoute les points du graphique, filtrés selon l'espèce choisie
+                Plot.dot(data, {
+                    x: "culmen_length_mm", // Axe X : longueur du bec
+                    y: "culmen_depth_mm", // Axe Y : profondeur du bec
+                    stroke: "species", // Couleur selon l'espèce
+                }),
+            ],
+        });
+
+        // Ajoute le graphique à la div
+        div!.appendChild(plot);
+    }
+
+    // Ajoute un écouteur d'événement pour le changement d'espèce (appel 'renderPlot')
+    selectSpecies!.addEventListener("change", renderPlot);
+
+    // Affiche le graphique au chargement de la page
+    renderPlot();
+</script>
