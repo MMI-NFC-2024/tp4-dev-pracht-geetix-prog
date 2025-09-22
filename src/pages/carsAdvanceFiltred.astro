@@ -1,0 +1,149 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<header>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/simple">Simple</a>
+        <a href="/penguinsFiltred">Penguins filtrés</a>
+        <a href="/penguinsAdvanceFiltred">Penguins avancé</a>
+    </nav>
+</header>
+
+<div id="cars"></div>
+
+<select id="cylinders">
+    <option value="">All cylinders</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="8">8</option>
+</select>
+
+<select id="year">
+    <option value="">All years</option>
+    <option value="70">1970</option>
+    <option value="71">1971</option>
+    <option value="72">1972</option>
+    <option value="73">1973</option>
+    <option value="74">1974</option>
+    <option value="75">1975</option>
+    <option value="76">1976</option>
+    <option value="77">1977</option>
+    <option value="78">1978</option>
+    <option value="79">1979</option>
+    <option value="80">1980</option>
+    <option value="81">1981</option>
+    <option value="82">1982</option>
+</select>
+
+<select id="name">
+    <option value="">All brands</option>
+    <option value="AMC">AMC</option>
+    <option value="Audi">Audi</option>
+    <option value="BMW">BMW</option>
+    <option value="Buick">Buick</option>
+    <option value="Cadillac">Cadillac</option>
+    <option value="Chevrolet">Chevrolet</option>
+    <option value="Chrysler">Chrysler</option>
+    <option value="Citroen">Citroen</option>
+    <option value="Datsun">Datsun</option>
+    <option value="Dodge">Dodge</option>
+    <option value="Fiat">Fiat</option>
+    <option value="Ford">Ford</option>
+    <option value="Honda">Honda</option>
+    <option value="Mazda">Mazda</option>
+    <option value="Mercedes-Benz">Mercedes-Benz</option>
+    <option value="Mercury">Mercury</option>
+    <option value="Nissan">Nissan</option>
+    <option value="Oldsmobile">Oldsmobile</option>
+    <option value="Opel">Opel</option>
+    <option value="Peugeot">Peugeot</option>
+    <option value="Plymouth">Plymouth</option>
+    <option value="Pontiac">Pontiac</option>
+    <option value="Renault">Renault</option>
+    <option value="Saab">Saab</option>
+    <option value="Subaru">Subaru</option>
+    <option value="Toyota">Toyota</option>
+    <option value="Volkswagen">Volkswagen</option>
+    <option value="Volvo">Volvo</option>
+</select>
+
+<script>
+    import * as Plot from "@observablehq/plot";
+    import cars from "../assets/cars.json";
+
+    const selectCylinders = document.querySelector("#cylinders");
+    const selectYear = document.querySelector("#year");
+    const selectName = document.querySelector("#name");
+    const div = document.querySelector("#cars");
+
+    function renderPlot() {
+        const cylinders = selectCylinders.value;
+        const year = selectYear.value;
+        const brand = selectName.value;
+
+        // filtre multi-critères + enlève données incomplètes pour l'affichage
+        const data = cars.filter(
+            (d) =>
+                (cylinders === "" || String(d.cylinders) === cylinders) &&
+                (year === "" || String(d.year) === year) &&
+                (brand === "" || d.name.startsWith(brand)) &&
+                d["economy (mpg)"] != null &&
+                d["power (hp)"] != null,
+        );
+
+        div.innerHTML = "";
+
+        const plot = Plot.plot({
+            width: 900,
+            height: 520,
+            marginLeft: 60,
+            marginBottom: 50,
+            marks: [
+                Plot.dot(data, {
+                    x: "economy (mpg)",
+                    y: "power (hp)",
+                    stroke: "cylinders",
+                    r: 3,
+                    title: (d) => `${d.name} (${1900 + d.year})`,
+                }),
+                Plot.axisX({ label: "Miles per Gallon" }),
+                Plot.axisY({ label: "Horsepower" }),
+            ],
+            color: { legend: true },
+        });
+
+        div.appendChild(plot);
+    }
+
+    selectCylinders.addEventListener("change", renderPlot);
+    selectYear.addEventListener("change", renderPlot);
+    selectName.addEventListener("change", renderPlot);
+
+    renderPlot();
+</script>
+
+<style>
+    #cars {
+        min-height: 520px;
+        margin: 24px 0;
+    }
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav a {
+        display: block;
+        padding: 5px;
+        text-decoration: none;
+    }
+    select {
+        margin-right: 12px;
+        margin-top: 16px;
+    }
+</style>
