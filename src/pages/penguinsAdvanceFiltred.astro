@@ -38,14 +38,14 @@
     // Fonction pour afficher le graphique
     function renderPlot() {
         // Récupère les valeurs sélectionnées
-        const species = selectSpecies.value;
-        const island = selectIsland.value;
-        const sex = selectSex.value;
+        const species = selectSpecies!.value;
+        const island = selectIsland!.value;
+        const sex = selectSex!.value;
 
         // Sélectionne la div où le graphique sera affiché
         const div = document.querySelector("#penguins");
         // Vide le contenu précédent de la div
-        div.innerHTML = "";
+        div!.innerHTML = "";
 
         // Filtrage des données selon les trois paramètres
         const data = penguins.filter((d) => {
@@ -67,13 +67,13 @@
             ],
         });
         // Ajoute le graphique à la div
-        div.appendChild(plot);
+        div!.appendChild(plot);
     }
 
     // Ajoute un écouteur d'événement pour chaque filtre
-    selectSpecies.addEventListener("change", renderPlot);
-    selectIsland.addEventListener("change", renderPlot);
-    selectSex.addEventListener("change", renderPlot);
+    selectSpecies!.addEventListener("change", renderPlot);
+    selectIsland!.addEventListener("change", renderPlot);
+    selectSex!.addEventListener("change", renderPlot);
 
     // Affiche le graphique au chargement de la page
     renderPlot();
