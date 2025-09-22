@@ -1,20 +1,10 @@
----
-import PlotFigure from "../components/PlotFigure.astro";
-import Layout from "../layouts/Layout.astro";
+<div id="penguins"></div>
+
+<script>
 import * as Plot from "@observablehq/plot";
 import penguins from "../assets/penguins.json";
----
 
-<Layout>
-  <h1 class="text-2xl">Test Astro et Plot (Observablehq)</h1>
-  <PlotFigure
-    options={{
-      marks: [
-        Plot.rectY(
-          penguins,
-          Plot.binX({y: "count"}, {x: "culmen_length_mm"})
-        )
-      ],
-    }}
-  />
-</Layout>
+const plot = Plot.rectY(penguins, Plot.binX({y: "count"}, {x: "culmen_length_mm", fill: "purple"})).plot();
+const div = document.querySelector("#penguins");
+div!.append(plot);
+</script>
