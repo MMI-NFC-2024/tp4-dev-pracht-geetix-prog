@@ -10,11 +10,10 @@ import penguins from "../assets/penguins.json";
   <PlotFigure
     options={{
       marks: [
-        Plot.dot(penguins, {
-          x: "culmen_length_mm",
-          y: "culmen_depth_mm",
-          stroke: "species",
-        }),
+        Plot.rectY(
+          penguins,
+          Plot.binX({y: "count"}, {x: "culmen_length_mm"})
+        )
       ],
     }}
   />
