@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <div id="penguins"></div>
-<a href="/simple">Aller à la page simple</a>
-<a href="/penguinsFiltred">Aller à la page de filtrage</a>
+<nav>
+  <a href="/simple">Aller à la page simple</a>
+  <a href="/penguinsFiltred">Aller à la page de filtrage</a>
+  <a href="/penguinsAdvanceFiltred">Aller à la page des filtres avancé</a>
+</nav>
 
 <script>
 import * as Plot from "@observablehq/plot";
@@ -11,3 +14,17 @@ const plot = Plot.rectY(penguins, Plot.binX({y: "count"}, {x: "culmen_length_mm"
 const div = document.querySelector("#penguins");
 div!.append(plot);
 </script>
+
+<style>
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        display: block;
+        padding: 5px;
+        text-decoration: none;
+    }
+</style>

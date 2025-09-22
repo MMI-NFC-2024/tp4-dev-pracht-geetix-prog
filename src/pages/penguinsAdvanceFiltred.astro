@@ -3,7 +3,7 @@
 <nav>
     <a href="/">Aller à la page d'accueil</a>
     <a href="/simple">Aller à la page simple</a>
-    <a href="/penguinsAdvanceFiltred">Aller à la page des filtres avancé</a>
+    <a href="/penguinsFiltred">Aller à la page des filtres</a>
 </nav>
 
 <select name="species" id="species">
@@ -11,6 +11,17 @@
     <option value="Adelie">Adelie</option>
     <option value="Chinstrap">Chinstrap</option>
     <option value="Gentoo">Gentoo</option>
+</select>
+<select name="island" id="island">
+    <option value="">All island</option>
+    <option value="Biscoe">Biscoe</option>
+    <option value="Dream">Dream</option>
+    <option value="Torgersen">Torgersen</option>
+</select>
+<select name="sex" id="sex">
+    <option value="">All sex</option>
+    <option value="MALE">Male</option>
+    <option value="FEMALE">Female</option>
 </select>
 
 <script>
@@ -21,41 +32,48 @@
 
     // Récupère l'élément select pour choisir l'espèce
     const selectSpecies = document.querySelector("#species");
+    const selectIsland = document.querySelector("#island");
+    const selectSex = document.querySelector("#sex");
 
     // Fonction pour afficher le graphique
     function renderPlot() {
-        // Récupère l'espèce sélectionnée
-        const species = selectSpecies!.value;
+        // Récupère les valeurs sélectionnées
+        const species = selectSpecies.value;
+        const island = selectIsland.value;
+        const sex = selectSex.value;
 
         // Sélectionne la div où le graphique sera affiché
         const div = document.querySelector("#penguins");
-
         // Vide le contenu précédent de la div
-        div!.innerHTML = "";
+        div.innerHTML = "";
 
-        // Filtrage des données selon l'espèce (ou toutes si vide)
-        const data = species
-            ? penguins.filter((d) => d.species === species)
-            : penguins;
+        // Filtrage des données selon les trois paramètres
+        const data = penguins.filter((d) => {
+            return (
+                (species === "" || d.species === species) &&
+                (island === "" || d.island === island) &&
+                (sex === "" || d.sex === sex)
+            );
+        });
 
         // Crée le graphique avec Plot
         const plot = Plot.plot({
             marks: [
-                // Ajoute les points du graphique, filtrés selon l'espèce choisie
                 Plot.dot(data, {
-                    x: "culmen_length_mm", // Axe X : longueur du bec
-                    y: "culmen_depth_mm", // Axe Y : profondeur du bec
-                    stroke: "species", // Couleur selon l'espèce
+                    x: "culmen_length_mm",
+                    y: "culmen_depth_mm",
+                    stroke: "species",
                 }),
             ],
         });
-
         // Ajoute le graphique à la div
-        div!.appendChild(plot);
+        div.appendChild(plot);
     }
 
-    // Ajoute un écouteur d'événement pour le changement d'espèce (appel 'renderPlot')
-    selectSpecies!.addEventListener("change", renderPlot);
+    // Ajoute un écouteur d'événement pour chaque filtre
+    selectSpecies.addEventListener("change", renderPlot);
+    selectIsland.addEventListener("change", renderPlot);
+    selectSex.addEventListener("change", renderPlot);
 
     // Affiche le graphique au chargement de la page
     renderPlot();

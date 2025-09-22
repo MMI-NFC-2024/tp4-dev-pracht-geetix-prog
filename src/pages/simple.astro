@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <div id="myplot"></div>
-<a href="/">Retour à la page d'accueil</a>
-<a href="/penguinsFiltred">Aller à la page de filtrage</a>
+<nav>
+    <a href="/">Retour à la page d'accueil</a>
+    <a href="/penguinsFiltred">Aller à la page de filtrage</a>
+    <a href="/penguinsAdvanceFiltred">Aller à la page des filtres avancé</a>
+</nav>
 
 <script>
 import * as Plot from "@observablehq/plot";
@@ -11,3 +14,17 @@ const div = document.querySelector("#myplot");
 div!.append(plot);
 
 </script>
+
+<style>
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        display: block;
+        padding: 5px;
+        text-decoration: none;
+    }
+</style>
