@@ -1,0 +1,335 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<div id="olympian"></div>
+<nav>
+    <a href="/">Aller à la page d'accueil</a>
+    <a href="/simple">Aller à la page simple</a>
+    <a href="/penguinsFiltred">Aller à la page des filtres</a>
+    <a href="/carsAdvanceFiltred">Aller à la page voitures filtrées</a>
+</nav>
+
+<select name="sex" id="sex">
+    <option value="">All sex</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+</select>
+
+<select name="nation" id="nation">
+    <option value="">All nation</option>
+    <option value="AFG">Afghanistan</option>
+    <option value="ALB">Albania</option>
+    <option value="ALG">ALG</option>
+    <option value="AND">Andorra</option>
+    <option value="ANG">ANG</option>
+    <option value="ANT">ANT</option>
+    <option value="ARG">Argentina</option>
+    <option value="ARM">Armenia</option>
+    <option value="ARU">ARU</option>
+    <option value="ASA">ASA</option>
+    <option value="AUS">Australia</option>
+    <option value="AUT">Austria</option>
+    <option value="AZE">Azerbaijan</option>
+    <option value="BAH">BAH</option>
+    <option value="BAN">BAN</option>
+    <option value="BAR">BAR</option>
+    <option value="BDI">Burundi</option>
+    <option value="BEL">Belgium</option>
+    <option value="BEN">Benin</option>
+    <option value="BER">BER</option>
+    <option value="BHU">BHU</option>
+    <option value="BIH">Bosnia and Herzegovina</option>
+    <option value="BIZ">BIZ</option>
+    <option value="BLR">Belarus</option>
+    <option value="BOL">Bolivia, Plurinational State of</option>
+    <option value="BOT">BOT</option>
+    <option value="BRA">Brazil</option>
+    <option value="BRN">Brunei Darussalam</option>
+    <option value="BRU">BRU</option>
+    <option value="BUL">BUL</option>
+    <option value="BUR">BUR</option>
+    <option value="CAF">Central African Republic</option>
+    <option value="CAM">CAM</option>
+    <option value="CAN">Canada</option>
+    <option value="CAY">CAY</option>
+    <option value="CGO">CGO</option>
+    <option value="CHA">CHA</option>
+    <option value="CHI">CHI</option>
+    <option value="CHN">China</option>
+    <option value="CIV">Côte d'Ivoire</option>
+    <option value="CMR">Cameroon</option>
+    <option value="COD">Congo, The Democratic Republic of the</option>
+    <option value="COK">Cook Islands</option>
+    <option value="COL">Colombia</option>
+    <option value="COM">Comoros</option>
+    <option value="CPV">Cabo Verde</option>
+    <option value="CRC">CRC</option>
+    <option value="CRO">CRO</option>
+    <option value="CUB">Cuba</option>
+    <option value="CYP">Cyprus</option>
+    <option value="CZE">Czechia</option>
+    <option value="DEN">DEN</option>
+    <option value="DJI">Djibouti</option>
+    <option value="DMA">Dominica</option>
+    <option value="DOM">Dominican Republic</option>
+    <option value="ECU">Ecuador</option>
+    <option value="EGY">Egypt</option>
+    <option value="ERI">Eritrea</option>
+    <option value="ESA">ESA</option>
+    <option value="ESP">Spain</option>
+    <option value="EST">Estonia</option>
+    <option value="ETH">Ethiopia</option>
+    <option value="FIJ">FIJ</option>
+    <option value="FIN">Finland</option>
+    <option value="FRA">France</option>
+    <option value="FSM">Micronesia, Federated States of</option>
+    <option value="GAB">Gabon</option>
+    <option value="GAM">GAM</option>
+    <option value="GBR">United Kingdom</option>
+    <option value="GBS">GBS</option>
+    <option value="GEO">Georgia</option>
+    <option value="GEQ">GEQ</option>
+    <option value="GER">GER</option>
+    <option value="GHA">Ghana</option>
+    <option value="GRE">GRE</option>
+    <option value="GRN">GRN</option>
+    <option value="GUA">GUA</option>
+    <option value="GUI">GUI</option>
+    <option value="GUM">Guam</option>
+    <option value="GUY">Guyana</option>
+    <option value="HAI">HAI</option>
+    <option value="HKG">Hong Kong</option>
+    <option value="HON">HON</option>
+    <option value="HUN">Hungary</option>
+    <option value="INA">INA</option>
+    <option value="IND">India</option>
+    <option value="IOA">IOA</option>
+    <option value="IRI">IRI</option>
+    <option value="IRL">Ireland</option>
+    <option value="IRQ">Iraq</option>
+    <option value="ISL">Iceland</option>
+    <option value="ISR">Israel</option>
+    <option value="ISV">ISV</option>
+    <option value="ITA">Italy</option>
+    <option value="IVB">IVB</option>
+    <option value="JAM">Jamaica</option>
+    <option value="JOR">Jordan</option>
+    <option value="JPN">Japan</option>
+    <option value="KAZ">Kazakhstan</option>
+    <option value="KEN">Kenya</option>
+    <option value="KGZ">Kyrgyzstan</option>
+    <option value="KIR">Kiribati</option>
+    <option value="KOR">Korea, Republic of</option>
+    <option value="KOS">KOS</option>
+    <option value="KSA">KSA</option>
+    <option value="LAO">Lao People's Democratic Republic</option>
+    <option value="LAT">LAT</option>
+    <option value="LBA">LBA</option>
+    <option value="LBR">Liberia</option>
+    <option value="LCA">Saint Lucia</option>
+    <option value="LES">LES</option>
+    <option value="LIB">LIB</option>
+    <option value="LIE">Liechtenstein</option>
+    <option value="LTU">Lithuania</option>
+    <option value="LUX">Luxembourg</option>
+    <option value="MAD">MAD</option>
+    <option value="MAR">Morocco</option>
+    <option value="MAS">MAS</option>
+    <option value="MAW">MAW</option>
+    <option value="MDA">Moldova, Republic of</option>
+    <option value="MDV">Maldives</option>
+    <option value="MEX">Mexico</option>
+    <option value="MGL">MGL</option>
+    <option value="MHL">Marshall Islands</option>
+    <option value="MKD">North Macedonia</option>
+    <option value="MLI">Mali</option>
+    <option value="MLT">Malta</option>
+    <option value="MNE">Montenegro</option>
+    <option value="MON">MON</option>
+    <option value="MOZ">Mozambique</option>
+    <option value="MRI">MRI</option>
+    <option value="MTN">MTN</option>
+    <option value="MYA">MYA</option>
+    <option value="NAM">Namibia</option>
+    <option value="NCA">NCA</option>
+    <option value="NED">NED</option>
+    <option value="NEP">NEP</option>
+    <option value="NGR">NGR</option>
+    <option value="NIG">NIG</option>
+    <option value="NOR">Norway</option>
+    <option value="NRU">Nauru</option>
+    <option value="NZL">New Zealand</option>
+    <option value="OMA">OMA</option>
+    <option value="PAK">Pakistan</option>
+    <option value="PAN">Panama</option>
+    <option value="PAR">PAR</option>
+    <option value="PER">Peru</option>
+    <option value="PHI">PHI</option>
+    <option value="PLE">PLE</option>
+    <option value="PLW">Palau</option>
+    <option value="PNG">Papua New Guinea</option>
+    <option value="POL">Poland</option>
+    <option value="POR">POR</option>
+    <option value="PRK">Korea, Democratic People's Republic of</option>
+    <option value="PUR">PUR</option>
+    <option value="QAT">Qatar</option>
+    <option value="ROT">ROT</option>
+    <option value="ROU">Romania</option>
+    <option value="RSA">RSA</option>
+    <option value="RUS">Russian Federation</option>
+    <option value="RWA">Rwanda</option>
+    <option value="SAM">SAM</option>
+    <option value="SEN">Senegal</option>
+    <option value="SEY">SEY</option>
+    <option value="SIN">SIN</option>
+    <option value="SKN">SKN</option>
+    <option value="SLE">Sierra Leone</option>
+    <option value="SLO">SLO</option>
+    <option value="SMR">San Marino</option>
+    <option value="SOL">SOL</option>
+    <option value="SOM">Somalia</option>
+    <option value="SRB">Serbia</option>
+    <option value="SRI">SRI</option>
+    <option value="SSD">South Sudan</option>
+    <option value="STP">Sao Tome and Principe</option>
+    <option value="SUD">SUD</option>
+    <option value="SUI">SUI</option>
+    <option value="SUR">Suriname</option>
+    <option value="SVK">Slovakia</option>
+    <option value="SWE">Sweden</option>
+    <option value="SWZ">Eswatini</option>
+    <option value="SYR">Syrian Arab Republic</option>
+    <option value="TAN">TAN</option>
+    <option value="TGA">TGA</option>
+    <option value="THA">Thailand</option>
+    <option value="TJK">Tajikistan</option>
+    <option value="TKM">Turkmenistan</option>
+    <option value="TLS">Timor-Leste</option>
+    <option value="TOG">TOG</option>
+    <option value="TPE">TPE</option>
+    <option value="TTO">Trinidad and Tobago</option>
+    <option value="TUN">Tunisia</option>
+    <option value="TUR">Turkey</option>
+    <option value="TUV">Tuvalu</option>
+    <option value="UAE">UAE</option>
+    <option value="UGA">Uganda</option>
+    <option value="UKR">Ukraine</option>
+    <option value="URU">URU</option>
+    <option value="USA">United States</option>
+    <option value="UZB">Uzbekistan</option>
+    <option value="VAN">VAN</option>
+    <option value="VEN">Venezuela, Bolivarian Republic of</option>
+    <option value="VIE">VIE</option>
+    <option value="VIN">VIN</option>
+    <option value="YEM">Yemen</option>
+    <option value="ZAM">ZAM</option>
+    <option value="ZIM">ZIM</option>
+</select>
+
+<select name="sport" id="sport">
+    <option value="">All sport</option>
+    <option value="aquatics">aquatics</option>
+    <option value="archery">archery</option>
+    <option value="athletics">athletics</option>
+    <option value="badminton">badminton</option>
+    <option value="basketball">basketball</option>
+    <option value="boxing">boxing</option>
+    <option value="canoe">canoe</option>
+    <option value="cycling">cycling</option>
+    <option value="equestrian">equestrian</option>
+    <option value="fencing">fencing</option>
+    <option value="football">football</option>
+    <option value="golf">golf</option>
+    <option value="gymnastics">gymnastics</option>
+    <option value="handball">handball</option>
+    <option value="hockey">hockey</option>
+    <option value="judo">judo</option>
+    <option value="modern pentathlon">modern pentathlon</option>
+    <option value="rowing">rowing</option>
+    <option value="rugby sevens">rugby sevens</option>
+    <option value="sailing">sailing</option>
+    <option value="shooting">shooting</option>
+    <option value="table tennis">table tennis</option>
+    <option value="taekwondo">taekwondo</option>
+    <option value="tennis">tennis</option>
+    <option value="triathlon">triathlon</option>
+    <option value="volleyball">volleyball</option>
+    <option value="weightlifting">weightlifting</option>
+    <option value="wrestling">wrestling</option>
+</select>
+
+<script>
+    // Importe la librairie Plot d'ObservableHQ
+    import * as Plot from "@observablehq/plot";
+    // Importe les données des manchots depuis un fichier JSON
+    import penguins from "../assets/penguins.json";
+
+    // Récupère l'élément select pour choisir l'espèce
+    const selectSex = document.querySelector("#sex");
+    const selectNation = document.querySelector("#nation");
+    const selectSport = document.querySelector("#sport");
+
+    // Fonction pour afficher le graphique
+    function renderPlot() {
+        // Récupère les valeurs sélectionnées
+        const sex = selectSex!.value;
+        const nation = selectNation!.value;
+        const sport = selectSport!.value;
+
+        // Sélectionne la div où le graphique sera affiché
+        const div = document.querySelector("#olympian");
+        // Vide le contenu précédent de la div
+        div!.innerHTML = "";
+
+        // Filtrage des données selon les trois paramètres
+        const data = olympian.filter((d) => {
+            return (
+                (sex === "" || d.sex === sex) &&
+                (nation === "" || d.nation === nation) &&
+                (sport === "" || d.sport === sport)
+            );
+        });
+
+        // Crée le graphique avec Plot
+        const plot = Plot.plot({
+            marks: [
+                Plot.dot(data, {
+                    x: "height", // en mètres
+                    y: "weight", // en kg
+                    stroke: "sex", // couleur par sexe
+                    r: (d) => 3 + Math.min(6, medals(d)), // rayon en fonction des médailles
+                    title: (d) => `${d.name} — ${d.sport} (${d.nationality})`,
+                }),
+                Plot.axisX({ label: "Height (m)" }),
+                Plot.axisY({ label: "Weight (kg)" }),
+            ],
+            color: { legend: true },
+        });
+        // Ajoute le graphique à la div
+        div!.appendChild(plot);
+    }
+
+    // Ajoute un écouteur d'événement pour chaque filtre
+    selectNation!.addEventListener("change", renderPlot);
+    selectSport!.addEventListener("change", renderPlot);
+    selectSex!.addEventListener("change", renderPlot);
+
+    // Affiche le graphique au chargement de la page
+    renderPlot();
+</script>
+
+<style>
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        display: block;
+        padding: 5px;
+        text-decoration: none;
+    }
+</style>
